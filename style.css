@@ -1,0 +1,30 @@
+h1,
+h3 {
+  text-align: center;
+}
+
+.app {
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app div {
+  border: 3px solid black;
+  border-style: double;
+  width: 500px;
+  position: relative;
+  margin: 10px 0;
+  order: 0;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 1px 3px rgb(100, 100, 100);
+}
+
+.app div input {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
