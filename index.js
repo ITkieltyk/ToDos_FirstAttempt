@@ -13,14 +13,24 @@
 const app = document.getElementById("app");
 
 const TODOUrl = "https://jsonplaceholder.typicode.com/todos";
-let todoCount = 0;
+let todoCount = 10;
 let todoDone = 0;
+const doneCounter = document.createElement("div");
+doneCounter.style.position = "absolute";
+doneCounter.innerText = `Tasks done: ${todoDone}`;
+doneCounter.style.width = "fit-content";
+doneCounter.style.right = "5px";
+doneCounter.style.top = "5px";
+doneCounter.style.alignSelf = "start";
+doneCounter.style.zIndex = "2";
+app.appendChild(doneCounter);
+
 fetch(TODOUrl)
   .then((response) => response.json())
   .then((json) => {
     // console.log(json);
     // listToDos(json, 10);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < todoCount; i++) {
       const todoDiv = document.createElement("div");
       todoDiv.style.order = 0;
       const todoEntries = Object.entries(json[i]);
@@ -40,8 +50,12 @@ fetch(TODOUrl)
       todoToggle.addEventListener("click", (e) => {
         if (e.target.parentElement.style.order == "0") {
           e.target.parentElement.style.order = "3";
+          todoDone++;
+          doneCounter.innerText = `Tasks done: ${todoDone}`;
         } else {
           e.target.parentElement.style.order = "0";
+          todoDone--;
+          doneCounter.innerText = `Tasks done: ${todoDone}`;
         }
       });
       const todoDel = document.createElement("button");

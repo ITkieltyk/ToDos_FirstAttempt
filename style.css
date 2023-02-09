@@ -5,16 +5,20 @@ h3 {
 
 .app {
   margin: 0 auto;
-
+  margin-top: 20px;
+  width: 80%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  position: relative;
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
 
 .app div {
   border: 3px solid black;
   border-style: double;
-  width: 500px;
+  width: 40%;
   position: relative;
   margin: 10px 0;
   order: 0;
